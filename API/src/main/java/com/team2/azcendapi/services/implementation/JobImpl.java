@@ -37,6 +37,11 @@ public class JobImpl implements JobService {
         return jobs;
     }
 
+    @Override
+    public List<Job> getAllJobs() {
+        return jobRepository.findAll();
+    }
+
     @Transactional
     void saveJobs(List<Job> jobs) {
         for (Job job : jobs) {
