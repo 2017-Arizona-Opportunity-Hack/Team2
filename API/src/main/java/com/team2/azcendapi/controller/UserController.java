@@ -1,5 +1,6 @@
 package com.team2.azcendapi.controller;
 
+import com.team2.azcendapi.model.User;
 import com.team2.azcendapi.services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -27,7 +28,7 @@ public class UserController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<?> addUser(@RequestBody String input) {
-        return this.loginService.addUser(input);
+    public ResponseEntity<?> addUser(@RequestBody User user) {
+        return this.loginService.addUser(user);
     }
 }

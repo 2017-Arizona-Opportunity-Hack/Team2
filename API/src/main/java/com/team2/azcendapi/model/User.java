@@ -12,13 +12,17 @@ public class User {
     @NotNull
     private int id;
     @NotNull
-    private String user_id;
+    private String userId;
     @NotNull
     private String password;
     @NotNull
     private String email;
     @NotNull
     private String role;
+
+    public User() {
+        super();
+    }
 
     public int getId() {
         return id;
@@ -28,12 +32,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getPassword() {
