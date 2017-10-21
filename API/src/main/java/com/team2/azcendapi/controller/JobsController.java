@@ -24,7 +24,6 @@ public class JobsController {
         this.jobService = jobService;
     }
 
-
     @RequestMapping(method = RequestMethod.PUT, consumes = "multipart/form-data", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
     String importBooks(@RequestParam("file") MultipartFile file) {
@@ -36,4 +35,6 @@ public class JobsController {
     public List<Job> getJobs() {
         return jobService.getAllJobs();
     }
+
+
 }
