@@ -10,21 +10,22 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "jobs")
-public class Job {
+@Table(name = "general_ledger")
+public class GeneralLedger {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private int jobId;
-    private String jobDescription;
+    private int glId;
+    private String glDescription;
 
-    public Job() {
+    public GeneralLedger() {
         super();
     }
 
-    public Job(int jobId, String jobDescription) {
-        this.jobId = jobId;
-        this.jobDescription = jobDescription;
+    public GeneralLedger(int glId, String glDescription) {
+        this.glId = glId;
+        this.glDescription = glDescription;
     }
 
     public int getId() {
@@ -35,24 +36,24 @@ public class Job {
         this.id = id;
     }
 
-    public int getJobId() {
-        return jobId;
+    public int getGlId() {
+        return glId;
     }
 
-    public void setJobId(int jobId) {
-        this.jobId = jobId;
+    public void setGlId(int glId) {
+        this.glId = glId;
     }
 
-    public String getJobDescription() {
-        return jobDescription;
+    public String getGlDescription() {
+        return glDescription;
     }
 
-    public void setJobDescription(String jobDescription) {
-        this.jobDescription = jobDescription;
+    public void setGlDescription(String glDescription) {
+        this.glDescription = glDescription;
     }
 
     public static String[] getFmpCsvImportFileHeaders() {
-        return new String[]{"jobId", "jobDescription"};
+        return new String[]{"glId", "glDescription"};
     }
 
     public static CellProcessor[] getFmpCsvImportFileCellProcessors() {
@@ -61,6 +62,4 @@ public class Job {
                 new org.supercsv.cellprocessor.constraint.NotNull()
         };
     }
-
 }
-
