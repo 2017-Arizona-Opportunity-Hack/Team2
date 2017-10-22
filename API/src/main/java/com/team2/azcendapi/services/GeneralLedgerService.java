@@ -8,4 +8,6 @@ import java.util.List;
 public interface GeneralLedgerService {
 
     List<GeneralLedger> importGL(MultipartFile file);
+
+    List<GeneralLedger> getAllGLs();
 }

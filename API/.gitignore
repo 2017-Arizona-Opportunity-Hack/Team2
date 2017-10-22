@@ -1,1 +1,9 @@
-# Created by .ignore support plugin (hsz.mobi)
+target/
+build
+.settings
+.project
+.classpath
+.springBeans
+.DS_Store
+.idea/
+out/

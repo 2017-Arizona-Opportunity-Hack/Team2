@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -15,7 +16,8 @@ public class Budget {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
+    @Transient
+    private int jobId;
     @OneToOne
     @JoinColumn(name = "job_id")
     private Job job;
@@ -48,5 +50,13 @@ public class Budget {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public int getJobId() {
+        return jobId;
+    }
+
+    public void setJobId(int jobId) {
+        this.jobId = jobId;
     }
 }
