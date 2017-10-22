@@ -1,5 +1,6 @@
 package com.team2.azcendapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.supercsv.cellprocessor.ParseInt;
 import org.supercsv.cellprocessor.ift.CellProcessor;
 
@@ -9,18 +10,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "general_ledger")
-public class GeneralLedger {
+public class GeneralLedger implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private int glId;
     private String glDescription;
+    @JsonIgnore
     @OneToMany(mappedBy = "generalLedger")
     private Set<Invoice> invoices = new LinkedHashSet<>();
 
