@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {userInfo} from 'os';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  deAuthenticateUser() {
+    // When you get success response from API:  Navigate to welcome
+    localStorage.clear();
+    // else .. navigate to login page ~ issue alert login failed!
+  }
 }
 
