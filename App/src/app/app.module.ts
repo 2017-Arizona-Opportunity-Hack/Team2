@@ -6,12 +6,20 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { EmployeeComponent } from './welcome/employee/employee.component';
+import { BillsComponent } from './welcome/bills/bills.component';
+import { PayrollComponent } from './welcome/payroll/payroll.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    WelcomeComponent,
+    EmployeeComponent,
+    BillsComponent,
+    PayrollComponent
   ],
   imports: [
     BrowserModule,
