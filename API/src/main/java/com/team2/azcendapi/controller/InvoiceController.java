@@ -15,7 +15,7 @@ public class InvoiceController {
     @RequestMapping(method = RequestMethod.PUT, consumes = "multipart/form-data", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
     String addInvoice(@RequestBody JsonNode node) {
-//        jobService.importJobs(file);
+        jobService.importJobs(file);
         return "{\"status\":204}";
     }
 }

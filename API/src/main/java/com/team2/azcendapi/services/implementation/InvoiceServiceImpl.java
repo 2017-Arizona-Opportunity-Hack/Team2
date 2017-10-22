@@ -34,7 +34,15 @@ public class InvoiceServiceImpl implements InvoiceService{
             throw  new BadRequestException("GL id is invalid");
         }
         Invoice invoice;
-//        invoice = invoiceRepository.
-        return false;
+        invoice = invoiceRepository.findByGeneralLedgerAndMonth
+                (generalLedger,rawData.get("month").asText());
+        if(invoice == null){
+            invoice = new Invoice();
+        }
+        invoice.setGeneralLedger(generalLedger);
+        invoice.setInvoiceAmount(rawData.get("invoice_amount").asDouble());
+        invoice.setMonth(rawData.get("month").asText());
+        invoiceRepository.save(invoice);
+        return true;
     }
 }
