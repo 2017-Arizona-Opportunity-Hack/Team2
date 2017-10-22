@@ -28,6 +28,13 @@
           <!--<span *ngIf="this.route === '/home'" class="active"></span>-->
           <a routerLink="/employee">Employee </a>
         </li>
+        <li onclick="showModel()"><a>Export Data</a></li>
+        <script>
+          function showModal(){
+            $('my_file').click();
+          }
+        </script>
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li (click)="deAuthenticateUser()"><a routerLink="/login">Logout</a></li>
