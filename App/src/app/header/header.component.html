@@ -1,3 +1,37 @@
-<p>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand"><span *ngIf="isLoggedIn" style="color:brown;">Welcome <span id="userid">{{username}}</span></span></a>
+    </div>
 
-</p>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+        <li [ngClass]="{'active': this.route === ''}">
+          <!--<span *ngIf="this.route === '/profile'" class="active"></span>-->
+          <a routerLink="">Home </a>
+        </li>
+        <li [ngClass]="{'active': this.route === '/bills'}">
+          <!--<span *ngIf="this.route === '/home'" class="active"></span>-->
+          <a routerLink="/bills">Bills </a>
+        </li>
+
+        <li [ngClass]="{'active': this.route === '/employee'}">
+          <!--<span *ngIf="this.route === '/home'" class="active"></span>-->
+          <a routerLink="/employee">Employee </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a routerLink="/logout">Logout</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
