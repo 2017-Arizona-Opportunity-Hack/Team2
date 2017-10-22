@@ -30,7 +30,7 @@ public class InvoiceController {
             @ApiResponse(code = 400, message = "Incorrect data"),
             @ApiResponse(code = 204, message = "OK")
     })
-    @RequestMapping(method = RequestMethod.PUT, consumes = "multipart/form-data", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String addInvoice(@RequestBody JsonNode node) {
         invoiceService.addInvoice(node);

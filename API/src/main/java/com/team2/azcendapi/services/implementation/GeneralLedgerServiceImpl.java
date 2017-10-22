@@ -39,6 +39,11 @@ public class GeneralLedgerServiceImpl implements GeneralLedgerService {
         return generalLedgers;
     }
 
+    @Override
+    public List<GeneralLedger> getAllGLs() {
+        return generalLedgerRepository.findAll();
+    }
+
     @Transactional
     void saveGeneralLedgers(List<GeneralLedger> generalLedgers) {
         for (GeneralLedger generalLedger : generalLedgers) {
