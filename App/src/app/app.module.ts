@@ -11,6 +11,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { BillsComponent } from './bills/bills.component';
 import { PayrollComponent } from './payroll/payroll.component';
 import {routing} from 'app/app.routing';
+import { ImportComponent } from './import/import.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {routing} from 'app/app.routing';
     EmployeeComponent,
     BillsComponent,
     PayrollComponent,
+    ImportComponent,
 
   ],
   imports: [
