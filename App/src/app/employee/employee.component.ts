@@ -9,6 +9,9 @@ export class EmployeeComponent implements OnInit {
 
   constructor() { }
 
+  getEmployee(employee_id: number) {
+
+  }
   ngOnInit() {
   }
 

@@ -12,4 +12,7 @@ export class BillsComponent implements OnInit {
   ngOnInit() {
   }
 
+  putAmount(job_id: number, amount: String) {
+
+}
 }
