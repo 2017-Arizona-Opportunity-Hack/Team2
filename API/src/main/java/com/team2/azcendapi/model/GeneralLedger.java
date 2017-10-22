@@ -7,7 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "general_ledger")
@@ -18,6 +21,8 @@ public class GeneralLedger {
     private int id;
     private int glId;
     private String glDescription;
+    @OneToMany(mappedBy = "generalLedger")
+    private Set<Invoice> invoices = new LinkedHashSet<>();
 
     public GeneralLedger() {
         super();
@@ -50,6 +55,14 @@ public class GeneralLedger {
 
     public void setGlDescription(String glDescription) {
         this.glDescription = glDescription;
+    }
+
+    public Set<Invoice> getInvoices() {
+        return invoices;
+    }
+
+    public void setInvoices(Set<Invoice> invoices) {
+        this.invoices = invoices;
     }
 
     public static String[] getFmpCsvImportFileHeaders() {
