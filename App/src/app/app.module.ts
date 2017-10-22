@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { EmployeeComponent } from './welcome/employee/employee.component';
-import { BillsComponent } from './welcome/bills/bills.component';
-import { PayrollComponent } from './welcome/payroll/payroll.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { BillsComponent } from './bills/bills.component';
+import { PayrollComponent } from './payroll/payroll.component';
+import {routing} from 'app/app.routing';
 
 @NgModule({
   declarations: [
@@ -19,12 +20,14 @@ import { PayrollComponent } from './welcome/payroll/payroll.component';
     WelcomeComponent,
     EmployeeComponent,
     BillsComponent,
-    PayrollComponent
+    PayrollComponent,
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
