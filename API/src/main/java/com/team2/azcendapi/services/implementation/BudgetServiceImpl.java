@@ -1,6 +1,5 @@
 package com.team2.azcendapi.services.implementation;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.team2.azcendapi.exception.BadRequestException;
 import com.team2.azcendapi.model.Budget;
 import com.team2.azcendapi.model.Job;
@@ -24,12 +23,12 @@ public class BudgetServiceImpl implements BudgetService{
     }
 
     @Override
-    public boolean addBudget(JsonNode node) {
-        if(!node.has("job_id") || !node.has("amount")){
+    public boolean addBudget(Budget node) {
+        if(node.getJobId() == 0 || node.getAmount() == 0){
             throw new BadRequestException("The supplied parameters are not " +
                     "correct");
         }
-        Job job = jobRepository.findByJobId(node.get("job_id").asInt());
+        Job job = jobRepository.findByJobId(node.getJobId());
         if(job == null){
             throw new BadRequestException("Job id does not exist");
         }
@@ -39,7 +38,7 @@ public class BudgetServiceImpl implements BudgetService{
             budget = new Budget();
         }
         budget.setJob(job);
-        budget.setAmount(node.get("amount").asDouble());
+        budget.setAmount(node.getAmount());
         budgetRepository.save(budget);
         return true;
     }

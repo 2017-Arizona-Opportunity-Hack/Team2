@@ -1,6 +1,6 @@
 package com.team2.azcendapi.controller;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import com.team2.azcendapi.model.Budget;
 import com.team2.azcendapi.model.generic.HttpResponse;
 import com.team2.azcendapi.services.BudgetService;
 import io.swagger.annotations.ApiOperation;
@@ -36,10 +36,10 @@ public class BudgetController {
     })
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType
             .APPLICATION_JSON_VALUE)
-    public ResponseEntity<HttpResponse> addBudget(@RequestBody JsonNode node) {
-        if (budgetService.addBudget(node)) {
-            HttpResponse response =  new HttpResponse(HttpStatus.CREATED
-                    .value(),"Budget Created");
+    public ResponseEntity<HttpResponse> addBudget(@RequestBody Budget budget) {
+        if (budgetService.addBudget(budget)) {
+            HttpResponse response = new HttpResponse(HttpStatus.CREATED
+                    .value(), "Budget Created");
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
         }
         return null;

@@ -16,13 +16,14 @@ import java.util.Set;
 
 @Entity
 @Table(name = "general_ledger")
-public class GeneralLedger implements Serializable{
+public class GeneralLedger implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private int glId;
     private String glDescription;
+
     @JsonIgnore
     @OneToMany(mappedBy = "generalLedger")
     private Set<Invoice> invoices = new LinkedHashSet<>();
@@ -34,6 +35,17 @@ public class GeneralLedger implements Serializable{
     public GeneralLedger(int glId, String glDescription) {
         this.glId = glId;
         this.glDescription = glDescription;
+    }
+
+    public static String[] getFmpCsvImportFileHeaders() {
+        return new String[]{"glId", "glDescription"};
+    }
+
+    public static CellProcessor[] getFmpCsvImportFileCellProcessors() {
+        return new CellProcessor[]{
+                new org.supercsv.cellprocessor.constraint.NotNull(new ParseInt()),
+                new org.supercsv.cellprocessor.constraint.NotNull()
+        };
     }
 
     public int getId() {
@@ -66,16 +78,5 @@ public class GeneralLedger implements Serializable{
 
     public void setInvoices(Set<Invoice> invoices) {
         this.invoices = invoices;
-    }
-
-    public static String[] getFmpCsvImportFileHeaders() {
-        return new String[]{"glId", "glDescription"};
-    }
-
-    public static CellProcessor[] getFmpCsvImportFileCellProcessors() {
-        return new CellProcessor[]{
-                new org.supercsv.cellprocessor.constraint.NotNull(new ParseInt()),
-                new org.supercsv.cellprocessor.constraint.NotNull()
-        };
     }
 }
