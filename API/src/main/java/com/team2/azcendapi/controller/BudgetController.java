@@ -26,8 +26,7 @@ public class BudgetController {
     public BudgetController(BudgetService budgetService) {
         this.budgetService = budgetService;
     }
-
-
+    
     @ApiOperation(nickname = "Add budget in Database", value = "/budget")
     @ApiResponses({
             @ApiResponse(code = 500, message = "Internal Server Error"),
